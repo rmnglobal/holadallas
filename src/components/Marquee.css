@@ -1,0 +1,10 @@
+.marquee {
+  background: linear-gradient(90deg, var(--pink), var(--orange), var(--sun), var(--lime), var(--blue), var(--grape), var(--pink));
+  background-size: 200% 100%;
+  animation: gradientMove 8s linear infinite;
+  padding: 12px 0; overflow: hidden; white-space: nowrap;
+}
+@keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+.marquee-track { display: inline-flex; animation: scrollLeft 25s linear infinite; }
+.marquee-track span { font-family: var(--f); font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 2px; text-transform: uppercase; padding: 0 24px; }
+@keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
