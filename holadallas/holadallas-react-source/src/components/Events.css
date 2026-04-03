@@ -1,0 +1,46 @@
+.events-list { display: flex; flex-direction: column; gap: 10px; }
+.event-row {
+  display: flex; align-items: center; background: var(--cream);
+  border-radius: 14px; padding: 16px 18px; gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
+}
+.event-row:hover { transform: translateX(2px); box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+.event-featured {
+  background: linear-gradient(135deg, rgba(255,45,135,0.06), rgba(255,107,43,0.06));
+  border: 2px solid rgba(255,45,135,0.12);
+}
+.event-date-block { min-width: 56px; text-align: center; flex-shrink: 0; }
+.event-month { font-family: var(--fm); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pink); }
+.event-day { font-size: 32px; font-weight: 800; line-height: 1; letter-spacing: -1px; }
+.event-divider { width: 3px; height: 40px; border-radius: 2px; flex-shrink: 0; }
+.event-info { flex: 1; min-width: 0; }
+.event-badge {
+  display: inline-block; font-family: var(--fm); font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px;
+  border-radius: 50px; margin-bottom: 4px;
+}
+.badge-featured { background: rgba(255,45,135,0.1); color: var(--pink); }
+.badge-free { background: rgba(123,255,58,0.15); color: #2D8000; }
+.event-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.3px; }
+.event-meta { font-size: 12px; color: var(--ink3); display: flex; gap: 12px; flex-wrap: wrap; }
+.event-ticket { flex-shrink: 0; display: flex; align-items: center; gap: 6px; }
+.ticket-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, var(--pink), var(--orange));
+  color: #fff; padding: 8px 18px; font-family: var(--f);
+  font-size: 12px; font-weight: 700; border: none; border-radius: 50px;
+  cursor: pointer; white-space: nowrap;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.ticket-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,45,135,0.3); }
+.ticket-btn-free { background: linear-gradient(135deg, #10B981, #059669); }
+.ticket-btn-free:hover { box-shadow: 0 4px 16px rgba(16,185,129,0.3); }
+.ticket-price { font-family: var(--fm); font-size: 11px; font-weight: 700; color: var(--ink2); white-space: nowrap; }
+
+@media (max-width: 768px) {
+  .event-row { flex-wrap: wrap; }
+  .event-ticket {
+    width: 100%; justify-content: space-between; margin-top: 4px;
+    padding-top: 10px; border-top: 1px solid rgba(26,26,46,0.06);
+  }
+}
