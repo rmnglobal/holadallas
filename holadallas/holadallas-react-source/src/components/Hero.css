@@ -1,0 +1,57 @@
+.hero {
+  min-height: 100vh; min-height: 100dvh;
+  background: var(--cream); position: relative; overflow: hidden;
+  padding-top: 64px; display: flex; align-items: center;
+}
+.hero-blobs { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.45; }
+.blob-1 { width: 60vw; max-width: 500px; aspect-ratio: 1; background: var(--sun); top: -10%; right: -10%; animation: blobFloat 8s ease-in-out infinite; }
+.blob-2 { width: 50vw; max-width: 400px; aspect-ratio: 1; background: var(--pink); bottom: -5%; left: -10%; animation: blobFloat 8s ease-in-out infinite -3s; }
+.blob-3 { width: 40vw; max-width: 350px; aspect-ratio: 1; background: var(--blue); top: 30%; left: 45%; opacity: 0.25; animation: blobFloat 8s ease-in-out infinite -5s; }
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(15px,-15px) scale(1.03); }
+  66% { transform: translate(-10px,10px) scale(0.97); }
+}
+.hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 40px 20px; width: 100%; }
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; border: 2px solid var(--sun); border-radius: 50px;
+  padding: 6px 14px 6px 8px; font-size: 12px; font-weight: 600;
+  color: var(--ink2); margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(255,204,0,0.15);
+  animation: fadeUp 0.8s ease both;
+}
+.hero-pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6; } }
+.hero-title { font-size: clamp(40px,10vw,80px); font-weight: 800; line-height: 1.08; letter-spacing: -2px; margin-bottom: 20px; animation: fadeUp 0.8s ease 0.1s both; }
+.gradient-text { background: linear-gradient(135deg, var(--pink), var(--orange), var(--sun)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { font-size: 16px; line-height: 1.7; color: var(--ink3); max-width: 460px; margin-bottom: 28px; animation: fadeUp 0.8s ease 0.2s both; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.3s both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-right { display: none; }
+
+@media (min-width: 769px) {
+  .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 60px 24px; }
+  .hero-right { display: block; position: relative; height: 500px; }
+  .float-card {
+    position: absolute; background: #fff; border-radius: 16px; padding: 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.07); animation: cardFloat 6s ease-in-out infinite;
+  }
+  .float-card:nth-child(1) { top: 5%; left: 10%; width: 210px; border-left: 4px solid var(--pink); }
+  .float-card:nth-child(2) { top: 30%; right: 0; width: 230px; border-left: 4px solid var(--sun); animation-delay: -2s; }
+  .float-card:nth-child(3) { bottom: 18%; left: 5%; width: 190px; border-left: 4px solid var(--blue); animation-delay: -4s; }
+  .float-card:nth-child(4) { bottom: 5%; right: 10%; width: 180px; border-left: 4px solid var(--lime); animation-delay: -1s; }
+  @keyframes cardFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .fc-emoji { font-size: 26px; margin-bottom: 6px; }
+  .fc-title { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
+  .fc-sub { font-size: 12px; color: var(--ink3); }
+  .fc-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-top: 6px; }
+  .fc-tag-pink { background: rgba(255,45,135,0.1); color: var(--pink); }
+  .fc-tag-yellow { background: rgba(255,204,0,0.15); color: #CC9900; }
+  .fc-tag-blue { background: rgba(0,194,255,0.1); color: var(--blue); }
+  .fc-tag-green { background: rgba(123,255,58,0.15); color: #3D9900; }
+}
+
+@media (max-width: 480px) { .hero-actions { flex-direction: column; } }
